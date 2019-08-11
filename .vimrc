@@ -262,9 +262,6 @@ map <Down> gj
 map k gk
 map j gj
 
-" Just go out in insert mode
-imap jk <ESC>l
-
 nnoremap <F6> :setlocal spell! spell?<CR>
 
 " Search mappings: These will make it so that going to the next one in a
