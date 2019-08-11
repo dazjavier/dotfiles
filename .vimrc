@@ -1,7 +1,6 @@
 " load plugins
 execute pathogen#infect()
 call pathogen#helptags()
-" a comment
 
 set nocompatible              " be iMproved, required
 filetype off                  " required
@@ -599,4 +598,13 @@ nnoremap <leader>av :tabnew $MYVIMRC<CR>
 inoremap kj <Esc>
 cnoremap kj <Esc>
 set relativenumber
+
+function! Refactor()
+    call inputsave()
+    let @z=input("What do you want to rename '" . @z . "' to? ")
+    call inputrestore()
+endfunction
+
+" Locally (local to block) rename a variable
+nmap <Leader>rf "zyiw:call Refactor()<cr>mx:silent! norm gd<cr>[{V%:s/<C-R>//<c-r>z/g<cr>`x
 
